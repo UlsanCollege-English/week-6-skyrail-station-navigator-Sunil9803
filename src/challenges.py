@@ -1,7 +1,4 @@
-"""Weekly Coding #5 starter code: Trees, traversals, and BST basics."""
-
 from __future__ import annotations
-
 from typing import Any
 
 
@@ -19,13 +16,11 @@ class TreeNode:
         self.right = right
 
 
-
 def preorder_values(root: TreeNode | None) -> list[Any]:
     """Return the tree values in preorder: node, left, right."""
     if root is None:
         return []
     return [root.value] + preorder_values(root.left) + preorder_values(root.right)
-
 
 
 def inorder_values(root: TreeNode | None) -> list[Any]:
@@ -35,7 +30,6 @@ def inorder_values(root: TreeNode | None) -> list[Any]:
     return inorder_values(root.left) + [root.value] + inorder_values(root.right)
 
 
-
 def postorder_values(root: TreeNode | None) -> list[Any]:
     """Return the tree values in postorder: left, right, node."""
     if root is None:
@@ -43,13 +37,12 @@ def postorder_values(root: TreeNode | None) -> list[Any]:
     return postorder_values(root.left) + postorder_values(root.right) + [root.value]
 
 
-
 def bst_contains(root: TreeNode | None, target: int) -> bool:
     """Return True if target exists in the BST. Otherwise return False."""
     if root is None:
         return False
 
-    if root.value == target:
+    if target == root.value:
         return True
     elif target < root.value:
         return bst_contains(root.left, target)
@@ -57,10 +50,9 @@ def bst_contains(root: TreeNode | None, target: int) -> bool:
         return bst_contains(root.right, target)
 
 
-
 def bst_insert(root: TreeNode | None, value: int) -> TreeNode:
     """Insert value into the BST and return the root node.
-
+    
     Duplicate values should be ignored.
     """
     if root is None:
